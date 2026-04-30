@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gift 3 💖</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+/* 🌫️ BLUR BACKGROUND */
+.bg-blur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("./images/Roo.png") center center no-repeat;
+    background-size: cover;
+    filter: blur(25px) brightness(0.7);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* 📸 MAIN IMAGE */
+.main-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 95%;
+    max-height: 90%;
+    object-fit: contain;
+
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* 🎁 BUTTON */
+.btn {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+
+    background: rgba(0,0,0,0.6);
+    color: white;
+    cursor: pointer;
+
+    z-index: 3;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌫️ Background -->
+<div class="bg-blur"></div>
+
+<!-- 📸 Image -->
+<img src="./images/roo.png" class="main-img">
+
+<!-- 🎁 Button -->
+<button class="btn" onclick="finish()">Finish 💙</button>
+
+<script>
+function finish() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
