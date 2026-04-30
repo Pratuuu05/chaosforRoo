@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Surprise 🎁</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #93c5fd);
+}
+
+/* screens */
+.screen { display: none; }
+
+.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+/* gif */
+.main-gif {
+    width: 220px;
+}
+
+/* text */
+h2 {
+    margin-top: 15px;
+    color: #1e3a8a;
+}
+
+p {
+    margin-top: 10px;
+    color: #1e3a8a;
+}
+
+/* buttons */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #60a5fa;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div id="screen1" class="screen active">
+    <img src="images/cute1.gif" class="main-gif">
+    <h2>Are you ready? 😏❤️</h2>
+
+    <button onclick="goYes()">YES</button>
+    <button id="noBtn">NO 😏</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div id="screen2" class="screen">
+    <img src="images/angry.gif" class="main-gif">
+
+    <h2>Click Next if you really mean it 😏</h2>
+    <p id="text1">Catch me if you can 😈</p>
+
+    <button id="nextBtn">Next ❤️</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div id="screen3" class="screen">
+    <img src="images/cute2.gif" class="main-gif">
+
+    <h2>This is way too fun… I'm not stopping 😈</h2>
+    <p id="text2">Still trying? 😂</p>
+
+    <button id="finalBtn">Okay fine click here ❤️</button>
+</div>
+
+<script>
+
+/* 😈 NO button runs */
+const noBtn = document.getElementById("noBtn");
+
+function moveNo() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("click", moveNo);
+
+
+/* switch screens */
+function switchScreen(id) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+
+/* SCREEN 2 */
+function goYes() {
+    switchScreen("screen2");
+
+    const btn = document.getElementById("nextBtn");
+    const text = document.getElementById("text1");
+
+    let tries = 0;
+
+    btn.onmouseover = moveButton;
+    btn.onclick = moveButton;
+
+    function moveButton() {
+        tries++;
+
+        text.innerText = "WHY ARE YOU CHASING ME 😭";
+
+        if (tries > 10) {
+            btn.innerText = "Okay fine… click now 😭❤️";
+            btn.style.transform = "translate(0,0)";
+
+            btn.onmouseover = null;
+            btn.onclick = goNext;
+            return;
+        }
+
+        const x = Math.random() * 150 - 75;
+        const y = Math.random() * 80;
+
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+}
+
+
+/* SCREEN 3 - FAST CHAOS 😈 */
+function goNext() {
+    switchScreen("screen3");
+
+    const btn = document.getElementById("finalBtn");
+    const text = document.getElementById("text2");
+
+    let tries = 0;
+
+    btn.style.position = "absolute"; // needed for movement
+
+    function moveFinal() {
+        tries++;
+
+       const msgs = ["Missed 😭", "Too slow 😏", "Again?? 😂", "Try harder 😈"];
+       text.innerText = msgs[Math.floor(Math.random()*msgs.length)]; 
+
+        // ❤️ after 10 tries → allow click
+        if (tries >= 10) {
+            btn.innerText = "Okay fine… click now 😭❤️";
+
+            // stop movement
+            btn.style.position = "relative";
+            btn.style.left = "0px";
+            btn.style.top = "0px";
+
+            btn.onmouseover = null;
+            btn.onclick = finalPage;
+            return;
+        }
+
+        // 😈 smooth movement (not too fast)
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 120);
+
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+    }
+
+    // trigger movement
+    btn.onmouseover = moveFinal;
+    btn.onclick = moveFinal;
+}
+
+
+/* FINAL */
+function finalPage() {
+    window.location.href = "birthday.html";
+}
+
+</script>
+
+</body>
+</html>
