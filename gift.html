@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pick your gift Rohit 💙</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #93c5fd);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* title */
+h1 {
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+/* gifts */
+.gifts {
+    display: flex;
+    gap: 30px;
+}
+
+/* box */
+.gift {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-size: 50px;
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.gift:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* opened */
+.opened {
+    background: #bfdbfe;
+}
+
+/* text */
+.gift p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Pick your gift Rohit 😏🎁</h1>
+
+<div class="gifts">
+    <div id="g1" class="gift" onclick="openGift(1)">
+        🎁
+        <p>Gift 1</p>
+    </div>
+
+    <div id="g2" class="gift" onclick="openGift(2)">
+        🎁
+        <p>Gift 2</p>
+    </div>
+
+    <div id="g3" class="gift" onclick="openGift(3)">
+        🎁
+        <p>Gift 3</p>
+    </div>
+</div>
+
+<script>
+function openGift(num) {
+    if (num === 1) window.location.href = "gift1.html";
+    if (num === 2) window.location.href = "gift2.html";
+    if (num === 3) window.location.href = "gift3.html";
+}
+</script>
+
+</body>
+</html>
