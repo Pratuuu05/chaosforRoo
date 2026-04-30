@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gift 2 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    font-family: 'Playfair Display', serif;
+}
+
+/* 📸 LEFT IMAGE */
+.left {
+    width: 50%;
+    height: 100vh;
+}
+
+.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 💌 RIGHT SIDE */
+.right {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+}
+
+/* Canva image */
+.right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 🎁 BUTTON */
+.next-btn {
+    position: absolute;
+    bottom: 25px;
+    right: 35px;
+
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.next-btn:hover {
+    transform: scale(1.08);
+}
+</style>
+</head>
+
+<body>
+
+<!-- 📸 LEFT -->
+<div class="left">
+    <img src="images/itsRoo.png">
+</div>
+
+<!-- 💌 RIGHT -->
+<div class="right">
+
+    <!-- ✅ CORRECT IMAGE -->
+    <img src="images/canvaletter.png">
+
+    <button class="next-btn" onclick="goBack()">Next Gift 🎁</button>
+
+</div>
+
+<script>
+function goBack() {
+    window.location.href = "gift.html";
+}
+</script>
+
+</body>
+</html>
