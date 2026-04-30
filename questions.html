@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Verification 😏</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container" id="mainBox">
+    <h1>Prove you are MY Roo 😤❤️</h1>
+
+    <div id="q1">
+        <p>Who is your favorite person? 🤨</p>
+        <button onclick="wrong()">Some random girl 💀</button>
+        <button onclick="wrongMove(this)">No one 😶</button>
+        <button onclick="nextQ2()">It’s you obviously ❤️</button>
+    </div>
+
+    <div id="q2" style="display:none;">
+        <p>Our daily routine? 😂</p>
+        <button onclick="wrong()">Nusti gossips 🙂</button>
+        <button onclick="nextQ3()">Roasting me 😭</button>
+        <button onclick="wrongMove(this)">We don’t talk 💀</button>
+    </div>
+
+    <div id="q3" style="display:none;">
+        <p>Who wins arguments? 😏</p>
+        <button onclick="wrong()">Me 🤓</button>
+        <button onclick="wrongMove(this)">Both 😭</button>
+        <button onclick="showFinal()">Always Roo 😒❤️</button>
+    </div>
+
+    <p id="response"></p>
+</div>
+
+<div class="container" id="finalBox" style="display:none;">
+    <h1>Okay fine… it’s you 😒❤️</h1>
+    <button onclick="enterSite()">Enter 😈</button>
+</div>
+
+<script>
+function wrong() {
+    response.innerText = "Wrong 😭";
+}
+
+function wrongMove(btn) {
+    btn.style.position = "absolute";
+    btn.style.top = Math.random()*300+"px";
+    btn.style.left = Math.random()*300+"px";
+}
+
+function nextQ2() {
+    q1.style.display="none";
+    q2.style.display="block";
+}
+
+function nextQ3() {
+    q2.style.display="none";
+    q3.style.display="block";
+}
+
+function showFinal() {
+    mainBox.style.display="none";
+    finalBox.style.display="block";
+}
+
+function enterSite() {
+    window.location.href = "passcode.html";
+}
+</script>
+
+</body>
+</html>
